@@ -129,6 +129,7 @@
                     <button id="f900" onclick="setQuickFilter('900')">900</button>
                     <button id="f1000" onclick="setQuickFilter('1000')">1000</button>
                     <button id="f2100" onclick="setQuickFilter('2100')">2100</button>
+                    <button id="f2500" onclick="setQuickFilter('2500')">2500</button>
                 </div>
             </div>
             <div class="filter-item" style="margin-left:auto">
@@ -318,6 +319,8 @@
                     if ((t||'').includes('お菓子')) return false;
                 } else if (quick === '2100') {
                     if (item.reqLv != 2100) return false;
+                } else if (quick === '2500') {
+                    if (item.reqLv != 2500) return false;
                 }
             }
             return true;
@@ -327,7 +330,7 @@
     }
 
     function clearQuickButtons() {
-        ['fBFU','f800','f900','f1000','f2100'].forEach(id => {
+        ['fBFU','f800','f900','f1000','f2100','f2500'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.remove('active');
         });
@@ -340,7 +343,7 @@
         } else {
             activeQuickFilter = mode;
             clearQuickButtons();
-            const btn = { 'BFU':'fBFU','800':'f800','900':'f900','1000':'f1000','2100':'f2100' }[mode];
+            const btn = { 'BFU':'fBFU','800':'f800','900':'f900','1000':'f1000','2100':'f2100','2500':'f2500' }[mode];
             const el = document.getElementById(btn);
             if (el) el.classList.add('active');
         }
